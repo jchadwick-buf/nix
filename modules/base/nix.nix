@@ -6,5 +6,6 @@
     nix.nixPath = [
       "nixpkgs=${inputs.nixpkgs.outPath}"
     ];
+    nix.registry.nixpkgs.flake = inputs.nixpkgs;
   };
 }
