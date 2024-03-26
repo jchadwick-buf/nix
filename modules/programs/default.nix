@@ -13,6 +13,11 @@
 
       # Kubernetes
       k9s
+
+      # Cloud
+      awscli2
+      google-cloud-sdk
+      google-cloud-sql-proxy
     ];
   };
 }
