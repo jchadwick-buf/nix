@@ -4,6 +4,7 @@
   ];
 
   config = {
+    programs.nix-index.enable = true;
     environment.systemPackages = with pkgs; [
       # Utilities
       git
@@ -18,6 +19,15 @@
       awscli2
       google-cloud-sdk
       google-cloud-sql-proxy
+
+      # Go toolchain
+      unstable.go
+      unstable.gopls
     ];
+
+    environment.variables = {
+      EDITOR = "vim";
+      GOPATH = "$HOME/Go";
+    };
   };
 }

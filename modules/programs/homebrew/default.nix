@@ -7,6 +7,7 @@
         "gitify"
         "jetbrains-toolbox"
         "orbstack"
+        "openlens"
         "wireshark"
         "flameshot"
         "inkscape"
