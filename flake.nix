@@ -22,6 +22,7 @@
           nixvim.nixDarwinModules.nixvim
           ./modules/machines/mbp
           ./modules/base
+          ./modules/desktop
           ./modules/users
           ./modules/programs
           ./modules/programs/homebrew

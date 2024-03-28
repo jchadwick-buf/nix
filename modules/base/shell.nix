@@ -8,14 +8,15 @@
         zle -N up-line-or-beginning-search
         zle -N down-line-or-beginning-search
 
-        # Key bindings; macOS is a little screwed up here.
+        # Key bindings
+        # Based on https://wiki.archlinux.org/title/Zsh#Key_bindings
         typeset -g -A key
         key[Up]="^[[A"
         key[Down]="^[[B"
         key[Right]="^[[C"
         key[Left]="^[[D"
-        key[End]="^[[F"
-        key[Home]="^[[H"
+        key[Home]="''${terminfo[khome]}"
+        key[End]="''${terminfo[kend]}"
         key[Insert]="''${terminfo[kich1]}"
         key[Backspace]="''${terminfo[kbs]}"
         key[Delete]="''${terminfo[kdch1]}"
