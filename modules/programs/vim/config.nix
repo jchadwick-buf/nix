@@ -59,6 +59,28 @@
     };
     nvim-cmp = {
       enable = true;
+      extraOptions = {
+        mapping = {
+          __raw = ''
+            cmp.mapping.preset.insert({
+              ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+              ['<C-f>'] = cmp.mapping.scroll_docs(4),
+              ['<C-Space>'] = cmp.mapping.complete(),
+              ['<C-e>'] = cmp.mapping.abort(),
+              ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            })
+          '';
+        };
+        completion.autocomplete = false;
+        preselect = "cmp.PreselectMode.Item";
+        sources = [ { name = "nvim_lsp"; } { name = "vsnip"; } ];
+      };
+    };
+    cmp-vsnip = {
+      enable = true;
+    };
+    cmp-nvim-lsp = {
+      enable = true;
     };
     packer = {
       enable = true;
@@ -66,6 +88,7 @@
         "tpope/vim-sleuth"
         "ntpeters/vim-better-whitespace"
         "knsh14/vim-github-link"
+        "golang/vscode-go" # For snippets
       ];
     };
     telescope = {
