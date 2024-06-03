@@ -13,6 +13,7 @@
         "swiftbar"
         "notion"
         "visual-studio-code"
+        "rectangle"
       ];
     };
   };
