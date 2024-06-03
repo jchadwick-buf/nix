@@ -45,7 +45,8 @@
         gopls.enable = true;
         clangd.enable = true;
         nixd.enable = true;
-        nixd.settings.formatting.command = "nixfmt";
+        nixd.settings.formatting.command = [ "nixfmt" ];
+        terraformls.enable = true;
       };
     };
     lsp-format = {
@@ -57,9 +58,9 @@
     lsp-lines = {
       enable = true;
     };
-    nvim-cmp = {
+    cmp = {
       enable = true;
-      extraOptions = {
+      settings = {
         mapping = {
           __raw = ''
             cmp.mapping.preset.insert({
@@ -73,7 +74,10 @@
         };
         completion.autocomplete = false;
         preselect = "cmp.PreselectMode.Item";
-        sources = [ { name = "nvim_lsp"; } { name = "vsnip"; } ];
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "vsnip"; }
+        ];
       };
     };
     cmp-vsnip = {
@@ -98,6 +102,9 @@
           action = "git_files";
         };
       };
+    };
+    treesitter = {
+      enable = true;
     };
   };
   extraConfigLua = builtins.readFile ./config.lua;
