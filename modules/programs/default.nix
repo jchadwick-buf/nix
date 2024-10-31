@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./kitty
@@ -12,33 +17,40 @@
         mkdir -p $out/bin
         ln -s ${pkgs.gnugrep}/bin/grep $out/bin/ggrep
       '';
+      bazel = pkgs.runCommand "bazel" { } ''
+        mkdir -p $out/bin
+        ln -s ${pkgs.bazelisk}/bin/bazelisk $out/bin/bazel
+      '';
     in
     {
       programs.nix-index.enable = true;
-      environment.systemPackages = with pkgs; [
+      environment.systemPackages = [
         # Utilities
-        comma
-        git
-        unstable.gitu
+        bazel
+        pkgs.comma
+        pkgs.git
+        pkgs.unstable.gitu
         ggrep
-        gnugrep
-        jq
-        yq
-        ripgrep
-        nixfmt-rfc-style
+        pkgs.gnugrep
+        pkgs.jq
+        pkgs.yq
+        pkgs.ripgrep
+        pkgs.nixfmt-rfc-style
 
         # Kubernetes
-        k9s
+        pkgs.k9s
 
         # Cloud
-        awscli2
-        (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
-        google-cloud-sql-proxy
+        pkgs.awscli2
+        (pkgs.google-cloud-sdk.withExtraComponents [
+          pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+        ])
+        pkgs.google-cloud-sql-proxy
 
         # Go toolchain
-        unstable.go
-        unstable.gopls
-        unstable.buf
+        pkgs.unstable.go_1_23
+        pkgs.unstable.gopls
+        pkgs.unstable.buf
       ];
 
       environment.variables = {

@@ -4,6 +4,7 @@
       enable = true;
       casks = [
         "alt-tab"
+        "kitty"
         "jetbrains-toolbox"
         "orbstack"
         "openlens"

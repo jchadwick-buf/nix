@@ -1,1 +1,4 @@
-{ security.pam.enableSudoTouchIdAuth = true; }
+{
+  security.pam.enableSudoTouchIdAuth = true;
+  system.stateVersion = 5;
+}
