@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -27,6 +25,7 @@
       environment.systemPackages = [
         # Utilities
         bazel
+        pkgs.aria2
         pkgs.comma
         pkgs.git
         pkgs.unstable.gitu
@@ -36,6 +35,8 @@
         pkgs.yq
         pkgs.ripgrep
         pkgs.nixfmt-rfc-style
+        pkgs.xcodes
+        pkgs.python312Full
 
         # Kubernetes
         pkgs.k9s
