@@ -31,6 +31,7 @@
         pkgs.unstable.gitu
         ggrep
         pkgs.gnugrep
+        pkgs.gh
         pkgs.jq
         pkgs.yq
         pkgs.ripgrep
@@ -49,7 +50,7 @@
         pkgs.google-cloud-sql-proxy
 
         # Go toolchain
-        pkgs.unstable.go_1_23
+        pkgs.unstable.go_1_24
         pkgs.unstable.gopls
         pkgs.unstable.buf
       ];
